@@ -17,5 +17,5 @@
   },
   "devDependencies": {
     "sonarqube-scanner": "^2.7.0"
-  },
+  }
 }
