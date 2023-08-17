@@ -9,12 +9,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sonar": "node sonar-project.js"
   },
-  "author": "NJ",
-  "license": "ISC",
-  "dependencies": {
+    "dependencies": {
     "express": "4.17.1",
     "jest": "26.6.3",
-    "jest-junit": "13.0.0"
+    "jest-junit": "13.0.0",
+    "web-vitals": "^3.1.0" 
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
