@@ -2,6 +2,7 @@ let express = require('express');
 let path = require('path');
 let fs = require('fs');
 let app = express();
+app.disable("x-powered-by");
 
 
 app.get('/', function (req, res) {
