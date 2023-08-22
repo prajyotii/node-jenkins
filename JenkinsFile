@@ -1,44 +1,25 @@
 pipeline {
-    agent any
-    
-    environment {
-        DOCKER_HUB_USERNAME = credentials('akshaypatil5596')
-        DOCKER_HUB_PASSWORD = credentials('Akshay@798')
-        DOCKER_IMAGE_NAME = 'node_app'
-        DOCKER_IMAGE_TAG = 'latest'
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                // Checkout your source code from version control (e.g., Git)
-                git branch: 'main', url: 'https://github.com/Akshay5596/node-jenkins.git'
-            }   
-        }
-        
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    def dockerImage = docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", '.')
-                }
-            }
-        }
-        
-        stage('Push to Docker Hub') {
-            steps {
-                script {
-                    docker.withRegistry("https://index.docker.io/v1/", DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD) {
-                        def dockerImage = docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-    }
-    
-    // post {
-    //     always {
-    //         // Clean up resources, if needed
-    //     }
-    // }
+ agent any
+   tools {
+     nodejs 'v10.19.0'
+  }
+stages {
+ stage('check'){
+steps {
+git credentialsId: '123', url: 'https://github.com/prajyotii/node-jenkins.git'
+ }
+   }
+stage('build'){
+  steps {
+     sh 'npm install'
+  }
+  }
+    stage('Sonarqube')
+  {
+ steps {
+sh "npm install sonar-scanner –save-dev"
+ sh "npm run sonar"
+     }
+  }
 }
-
+}
