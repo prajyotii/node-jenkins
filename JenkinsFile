@@ -17,7 +17,7 @@ stage('build'){
     stage('Sonarqube')
   {
  steps {
-sh "npm install sonar-scanner –save-dev"
+sh "npm install sonar-scanner"
  sh "npm run sonar"
      }
    }
