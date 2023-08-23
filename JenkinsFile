@@ -21,5 +21,11 @@ sh "npm install sonar-scanner"
  sh "npm run sonar"
      }
    }
+stage('deploy')
+{
+steps {
+sh "pm2 start server.js"
+   }
+  }
 }
 }
