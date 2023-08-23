@@ -24,7 +24,7 @@ sh "npm install sonar-scanner"
 stage('deploy')
 {
 steps {
-sh "pm2 start /app/server.js"
+sh "pm2 start server.js"
    }
   }
 }
